@@ -1,23 +1,11 @@
 from flask import Flask, jsonify, request, render_template, redirect
 from flask_sqlalchemy import SQLAlchemy
-# from models.user_model import UserModel
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@127.0.0.1:3306/new_work'
 db = SQLAlchemy(app)
 
-class UserModel(db.Model):
-    __table_name__ = 'user'
-    id = db.Column(db.Integer, primary_key=True)
-    username = db.Column(db.String(80), unique=True, nullable=False)
-    email = db.Column(db.String(120), unique=True, nullable=False)
-
-    def __init__(self, username: str, email: str):
-        self.username = username
-        self.email = email
-
-    def __repr__(self):
-        return '<User %r>' % self.username
+import models.user_model
 
 @app.route('/create_all')
 def create_all_tables():
@@ -39,9 +27,9 @@ def add_user():
 
 @app.route('/')
 def hello_world():
-    user = UserModel()
-    user.email = 'alex_test@mail.ru'
-    user.username = 'alex'
+    username = 'alex2'
+    email = 'alex_test2@mail.ru'
+    user = models.user_model.UserModel(username=username, email=email)
     db.session.add(user)
     db.session.commit()
     return 'hello, {0}!'.format(user)

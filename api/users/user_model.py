@@ -1,4 +1,4 @@
-from server import db
+from connection import db
 
 
 class UserModel(db.Model):

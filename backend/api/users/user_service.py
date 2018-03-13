@@ -1,5 +1,5 @@
-from api.users.user_model import UserModel
-from api.users.user_repository import UserRepository
+from backend.api.users.user_model import UserModel
+from backend.api.users.user_repository import UserRepository
 
 
 class UserService:

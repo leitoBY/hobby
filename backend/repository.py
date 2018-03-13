@@ -1,4 +1,4 @@
-from connection import db
+from backend.connection import db
 
 class Repository:
 

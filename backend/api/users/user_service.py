@@ -1,3 +1,5 @@
+from werkzeug.security import generate_password_hash
+
 from backend.api.users.user_model import UserModel
 from backend.api.users.user_repository import UserRepository
 
@@ -19,9 +21,16 @@ class UserService:
 
     @classmethod
     def add_new_user(cls, data: dict):
-        username = data.get('username')
+
         email = data.get('email')
-        new_user = UserModel(username=username, email=email)
+        user = cls.find_user_by_email(email)
+        if user:
+            raise Exception('User with selected email is already exists')
+
+        username = data.get('username')
+        password = data.get('password')
+        hashed_password = generate_password_hash(password=password, method="sha256")
+        new_user = UserModel(username=username, email=email, password=hashed_password)
         try:
             UserRepository.add(new_user)
             UserRepository.commit()
@@ -29,3 +38,7 @@ class UserService:
         except Exception as e:
             print('Error in database operation: {0}'.format(str(e)))
             UserRepository.rollback()
+
+    @classmethod
+    def find_user_by_email(cls, email):
+        return UserRepository.find_user_by_email(email)

@@ -2,7 +2,7 @@ from backend.connection import db
 
 
 class UserModel(db.Model):
-    __table_name__ = 'user'
+    __tablename__ = 'user'
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)

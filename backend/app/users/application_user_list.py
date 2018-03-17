@@ -5,7 +5,7 @@ from backend.api.users.user_service import UserService
 users_app = Blueprint('users_app', __name__)
 
 
-@users_app.route('/users')
+@users_app.route('/')
 def get_all_users():
 
     try:

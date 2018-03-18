@@ -23,8 +23,8 @@ class UserService:
     def add_new_user(cls, data: dict):
 
         email = data.get('email')
-        user = cls.find_user_by_email(email)
-        if user:
+        user_already_exists = cls.find_user_by_email(email)
+        if user_already_exists:
             raise Exception('User with selected email is already exists')
 
         username = data.get('username')

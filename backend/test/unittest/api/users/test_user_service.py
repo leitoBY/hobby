@@ -12,7 +12,6 @@ class TestUserService(unittest.TestCase):
             "password": "password",
         }
 
-
     user = Mock(username="test", email="test.test.com", password="secret_test")
     @patch.object(UserRepository, 'get_all', MagicMock(return_value=[user]))
     def test_get_all_users(self):

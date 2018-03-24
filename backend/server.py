@@ -1,6 +1,6 @@
 from flask import Flask
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='/static')
 
 # TODO move such thing to config file
 app.config['SECRET_KEY'] = 'My_super_secret_key'

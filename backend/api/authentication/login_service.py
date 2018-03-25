@@ -17,7 +17,7 @@ class LoginService:
 
         user = UserService.find_user_by_email(email=email)
         if not user or not check_password_hash(pwhash=user.password, password=password):
-            raise Exception("wrong emai or password combination")
+            raise Exception("wrong email or password combination")
 
         return cls._generate_access_jwt_token(user=user)
 
@@ -29,5 +29,5 @@ class LoginService:
         }
         encoded_jwt = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
 
-        jwt_token = {'token': encoded_jwt.decode('utf-8')}
+        jwt_token = encoded_jwt.decode('utf-8')
         return jwt_token

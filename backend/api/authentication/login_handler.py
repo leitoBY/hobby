@@ -13,7 +13,7 @@ def login_user():
         try:
             jwt_token = LoginService.login(data=body)
             if jwt_token:
-                return jsonify(jwt_token)
+                return jsonify({"jwt_token": jwt_token})
             return jsonify(message="Something went wrong")
         except Exception as e:
             return jsonify(error=str(e))

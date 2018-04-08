@@ -5,9 +5,9 @@ let submit_button = document.getElementById("register_button");
 if (submit_button){
     submit_button.onclick = function addNewUser() {
 
-        let username = document.getElementById("username").value;
-        let email = document.getElementById("email").value;
-        let password = document.getElementById("password").value;
+        let username = document.getElementById("register_name").value;
+        let email = document.getElementById("register_email").value;
+        let password = document.getElementById("register_password").value;
         data = {
             "username": username,
             "email": email,

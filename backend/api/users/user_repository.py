@@ -1,9 +1,9 @@
 from backend.repository import Repository
-from backend.api.users.user_model import UserModel
+from backend.api.users.user_model import User
 
 class UserRepository(Repository):
 
-    model = UserModel
+    model = User
 
     @classmethod
     def find_user_by_email(cls, email):

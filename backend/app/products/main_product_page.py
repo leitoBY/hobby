@@ -13,4 +13,4 @@ def get_all_users():
     except Exception as e:
         return jsonify(error=str(e))
 
-    return render_template("product_list.html", products=products)
+    return render_template("products/product_list.html", products=products)

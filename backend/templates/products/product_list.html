@@ -15,8 +15,12 @@
       <td>{{ product.title }}</td>
       <td>{{ product.description }}</td>
       <td>{{ product.price }}</td>
+      <td><a id="add_to_cart" href="#">add to cart</a></td>
     </tr>
    {% endfor %}
   </tbody>
 </table>
+{% endblock %}
+{% block scripts %}
+    <script type="text/javascript" src="../static/scripts/product.js"></script>
 {% endblock %}

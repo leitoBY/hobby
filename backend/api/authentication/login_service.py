@@ -1,7 +1,7 @@
 import jwt
 from datetime import datetime, timedelta
 from werkzeug.security import check_password_hash
-from backend.api.users.user_service import UserService
+from api.users.user_service import UserService
 
 # TODO this variables also need to move to config files
 JWT_SECRET = "EXTRA_SECRET_KEY"

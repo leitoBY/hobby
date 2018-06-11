@@ -1,5 +1,5 @@
 from flask import jsonify, request, render_template, Blueprint
-from backend.api.users.user_service import UserService
+from api.users.user_service import UserService
 
 register_api = Blueprint('register_api', __name__)
 @register_api.route('/register', methods=['GET', 'POST'])

@@ -1,4 +1,4 @@
-from backend.connection import db
+from connection import db
 
 
 class Product(db.Model):

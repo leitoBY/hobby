@@ -1,5 +1,5 @@
 from flask import jsonify, request, render_template, Blueprint
-from backend.api.authentication.login_service import LoginService
+from api.authentication.login_service import LoginService
 
 
 login_api = Blueprint('login_api', __name__)

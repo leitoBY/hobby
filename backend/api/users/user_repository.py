@@ -1,8 +1,7 @@
-from backend.repository import Repository
-from backend.api.users.user_model import User
+from repository import Repository
+from api.users.user_model import User
 
 class UserRepository(Repository):
-
     model = User
 
     @classmethod

@@ -1,4 +1,4 @@
-from backend.api.cart.cart_repository import CartRepository
+from api.cart.cart_repository import CartRepository
 
 
 class CartService:

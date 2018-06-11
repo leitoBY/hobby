@@ -1,4 +1,4 @@
-from backend.connection import db
+from connection import db
 from flask import Blueprint
 
 database_api = Blueprint('database_api', __name__)

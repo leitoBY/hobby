@@ -1,5 +1,5 @@
-from backend.connection import db
-from backend.api.cart.cart_model import Cart
+from connection import db
+from api.cart.cart_model import Cart
 
 
 class User(db.Model):

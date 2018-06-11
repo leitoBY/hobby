@@ -1,7 +1,7 @@
 from werkzeug.security import generate_password_hash
 
-from backend.api.users.user_model import User
-from backend.api.users.user_repository import UserRepository
+from api.users.user_model import User
+from api.users.user_repository import UserRepository
 
 
 class UserService:

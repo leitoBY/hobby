@@ -1,0 +1,32 @@
+{% extends "base_template.html" %}
+
+{% block content %}
+
+{{ render_data['blog_posts'] }}
+
+
+<div class="container">
+  <span>This is my own private page. And i won't be harrassed, bitch!</span>
+</div>
+<div class="container jumbotron">
+  <form>
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="email" placeholder="name@example.com">
+    </div>
+    <div class="form-group">
+      <label for="post_title">Title</label>
+      <input type="text" class="form-control" name="title" id="post_title" placeholder="Title">
+    </div>
+    <div class="form-group">
+      <label for="post_content">Content</label>
+      <textarea class="form-control" id="post_content" rows="3"></textarea>
+    </div>
+    <input type="button" id="add_post" class="btn btn-success" value="Add post"/>
+  </form>
+</div>
+{% endblock %}
+
+{% block scripts %}
+  <script type="text/javascript" src="../static/scripts/blog.js"></script>
+{% endblock %}

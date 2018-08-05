@@ -1,5 +1,4 @@
 /*jshint esversion: 6 */
-console.log('hi')
 
 let submit_button = document.getElementById("register_button");
 if (submit_button){

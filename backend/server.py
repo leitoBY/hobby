@@ -8,7 +8,7 @@ app.config['SECRET_KEY'] = 'My_super_secret_key'
 
 if __name__ == '__main__':
 
-    from app.main.main_page import main
+    from app.main.main_page import main, add_post, contacts, donate
     from api.blog.blog_post_handler import blog_post_api
     from api.comment.comment_handler import comment_api
 
@@ -22,6 +22,9 @@ if __name__ == '__main__':
     from app.user_carts.user_carts import user_cart
     
     app.register_blueprint(main)
+    app.register_blueprint(add_post)
+    app.register_blueprint(contacts)
+    app.register_blueprint(donate)
     app.register_blueprint(blog_post_api)
     app.register_blueprint(comment_api)
 

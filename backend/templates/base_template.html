@@ -8,19 +8,21 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
         crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="/static/css/main.css">
+    <link rel="stylesheet" type="text/css" href="/static/css/font-awesome.css">
+        {% block styles %}
+        {% endblock %}
     <title>Document</title>
 </head>
 
 <body>
-    <div id="content">
-        {% block content %}
-        {% endblock %}
-    </div>
+    {% block navbar %}
+    {% endblock %}
+
+    {% block content %}
+    {% endblock %}
 
     <div id="footer" class="footer">
-        {% block footer %}
-           <p>&copy; Copyright 2018 by <a href="https://github.com/leitoBY">leitoBY</a>. </p>
-        {% endblock %}
+        <p>&copy; Copyright 2018 by <a href="https://github.com/leitoBY">leitoBY</a>. </p>
     </div>
 </body>
 

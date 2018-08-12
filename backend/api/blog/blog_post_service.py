@@ -12,6 +12,7 @@ class BlogPostService(object):
         posts =  BlogPostRepository.get_all()
         for post in posts:
             blog_posts.append({
+                'id': post.id,
                 'created_at': post.created_at.strftime("%d.%m.%Y"),
                 'title': post.title,
                 'author': post.author,

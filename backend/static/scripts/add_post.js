@@ -20,7 +20,7 @@ let add_post = document.getElementById("add_post");
               })
           })
           .then(function (response) {
-              location.reload()
+              window.location.href = '/';
               return response.json();
           })
           .then(function (myJson) {

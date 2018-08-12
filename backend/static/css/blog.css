@@ -1,0 +1,13 @@
+.blog {
+  padding-top: 20px;
+}
+
+.author {
+  text-align: left;
+  font-size: 13px;
+}
+
+.logged-user {
+  float: right;
+  margin-left: auto;
+}

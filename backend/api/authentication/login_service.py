@@ -5,7 +5,7 @@ from api.users.user_service import UserService
 
 # TODO this variables also need to move to config files
 JWT_SECRET = "EXTRA_SECRET_KEY"
-JWT_EXP_DELTA_SECONDS = 20
+JWT_EXP_DELTA_SECONDS = 3600
 
 
 class LoginService:
@@ -24,7 +24,7 @@ class LoginService:
     @classmethod
     def _generate_access_jwt_token(cls, user):
         payload = {
-            'user_id': user.id,
+            'public_id': user.public_id,
             'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
         }
         encoded_jwt = jwt.encode(payload, JWT_SECRET, algorithm='HS256')

@@ -2,6 +2,7 @@ from werkzeug.security import generate_password_hash
 
 from api.users.user_model import User
 from api.users.user_repository import UserRepository
+import uuid
 
 
 class UserService:
@@ -30,7 +31,11 @@ class UserService:
         username = data.get('username')
         password = data.get('password')
         hashed_password = generate_password_hash(password=password, method="sha256")
-        new_user = User(username=username, email=email, password=hashed_password)
+        new_user = User(
+            public_id = str(uuid.uuid4()),
+            username=username,
+            email=email,
+            password=hashed_password)
         try:
             UserRepository.add(new_user)
             UserRepository.commit()
@@ -42,3 +47,7 @@ class UserService:
     @classmethod
     def find_user_by_email(cls, email):
         return UserRepository.find_user_by_email(email)
+
+    @classmethod
+    def find_user_by_public_id(cls, public_id):
+        return UserRepository.find_user_by_public_id(public_id)

@@ -1,6 +1,6 @@
-from flask import jsonify, Blueprint, render_template
+from flask import jsonify, request, Blueprint, render_template
 from api.blog.blog_post_service import BlogPostService
-
+from decorators.user_decorators import login_required
 
 main = Blueprint('main', __name__)
 
@@ -17,8 +17,12 @@ def get_main():
 add_post = Blueprint('add_post', __name__)
 
 @add_post.route('/post/add')
-def add_new_post():
-    return render_template('edit_post.html')
+@login_required
+def add_new_post(current_user):
+    print('here we are')
+    print(request)
+    print(request.headers)
+    return render_template('edit_post.html', user=current_user)
 
 
 contacts = Blueprint('contacts', __name__)

@@ -13,9 +13,15 @@
       <a class="navbar-brand" href="/contacts">contact us</a>
       <a class="navbar-brand" href="/donate">donate</a>
       
-      <div class="logged-user">
-        <span>logged in as User </span>
-      </div>
+      {% if user %}
+        <div class="logged-user">
+          <span>logged in as {{ user.username }} </span>
+        </div>
+      {% else %}
+        <div class="logged-user">
+          <span>You are not logged in <a href="/login">login</a></span>
+        </div>
+      {% endif %}
     </nav>
   </div>
 </div>

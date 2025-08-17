@@ -1,5 +1,10 @@
-from server import app
 from flask_sqlalchemy import SQLAlchemy
+from backend.config import get_config
 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:root@127.0.0.1:3306/new_work'
-db = SQLAlchemy(app)
+db = SQLAlchemy()
+
+def init_db(app):
+    """Initialize database with Flask app"""
+    config_class = get_config()
+    app.config.from_object(config_class)
+    db.init_app(app)

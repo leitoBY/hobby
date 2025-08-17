@@ -1,4 +1,4 @@
-from connection import db
+from backend.connection import db
 
 class Repository:
 
@@ -10,7 +10,7 @@ class Repository:
         return cls.model.query.all()
 
     @classmethod
-    def add(cls, instance: db.Model) -> None:
+    def add(cls, instance: "db.Model") -> None:
         return cls.session.add(instance)
 
     @classmethod

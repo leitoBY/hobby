@@ -1,0 +1,51 @@
+version: '3.8'
+
+services:
+  # Flask Backend Service
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: hobby_backend
+    ports:
+      - "5000:5000"
+    environment:
+      - FLASK_APP=backend/server.py
+      - FLASK_ENV=development
+      - DATABASE_URL=mysql+pymysql://hobby_user:hobby_password@mariadb:3306/hobby_db
+    volumes:
+      - .:/app
+      - /app/venv  # Exclude virtual environment from volume mount
+    depends_on:
+      - mariadb
+    networks:
+      - hobby_network
+    restart: unless-stopped
+
+  # MariaDB Database Service  
+  mariadb:
+    image: mariadb:latest
+    container_name: hobby_mariadb
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_ROOT_PASSWORD: root_password
+      MYSQL_DATABASE: hobby_db
+      MYSQL_USER: hobby_user
+      MYSQL_PASSWORD: hobby_password
+    volumes:
+      - mariadb_data:/var/lib/mysql
+      - ./database/init.sql:/docker-entrypoint-initdb.d/init.sql:ro
+    networks:
+      - hobby_network
+    restart: unless-stopped
+
+# Named volumes for persistent data
+volumes:
+  mariadb_data:
+    driver: local
+
+# Custom network for service communication
+networks:
+  hobby_network:
+    driver: bridge

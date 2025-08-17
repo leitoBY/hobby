@@ -1,5 +1,5 @@
-from connection import db
-from api.cart.cart_model import Cart
+from backend.connection import db
+from backend.api.cart.cart_model import Cart
 
 
 class User(db.Model):
@@ -8,7 +8,7 @@ class User(db.Model):
     public_id = db.Column(db.String(255))
     username = db.Column(db.String(80), unique=True, nullable=False)
     email = db.Column(db.String(120), unique=True, nullable=False)
-    password = db.Column(db.String(120), nullable=False)
+    password = db.Column(db.String(255), nullable=False)  # Increased from 120 to 255
     cart = db.relationship('Cart', backref='user', lazy=True)
 
     def __repr__(self):

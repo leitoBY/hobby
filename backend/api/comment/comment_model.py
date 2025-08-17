@@ -1,7 +1,7 @@
 from sqlalchemy import Column, ForeignKey
 from sqlalchemy.orm import relationship
 from sqlalchemy.types import DateTime, String, Text, Integer
-from connection import db
+from backend.connection import db
 
 
 class Comment(db.Model):

@@ -5,25 +5,25 @@
 {% endblock %}
 
 {% block navbar %}
-<div class="blog blog-header">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="/">Home</a>
-      <a class="navbar-brand" href="/post/add">add new post <i class="fa fa-plus"></i></a>
-      <a class="navbar-brand" href="/contacts">contact us</a>
-      <a class="navbar-brand" href="/donate">donate</a>
-      
-      {% if user %}
-        <div class="logged-user">
-          <span>logged in as {{ user.username }} </span>
-        </div>
-      {% else %}
-        <div class="logged-user">
-          <span>You are not logged in <a href="/login">login</a></span>
-        </div>
-      {% endif %}
-    </nav>
+    <a class="navbar-brand" href="/">Home</a>
+    <div class="navbar-nav mr-auto">
+      <a class="nav-link" href="/post/add">Add Post <i class="fa fa-plus"></i></a>
+      <a class="nav-link" href="/contacts">Contact Us</a>
+      <a class="nav-link" href="/donate">Donate</a>
+    </div>
+    {% if user %}
+      <div class="ml-auto">
+        <span class="navbar-text mr-3">Welcome, {{ user.username }}!</span>
+        <a href="/logout" class="btn btn-sm btn-outline-secondary">Logout</a>
+      </div>
+    {% else %}
+      <div class="ml-auto">
+        <a href="/login" class="btn btn-sm btn-primary mr-2">Login</a>
+        <a href="/register" class="btn btn-sm btn-success">Register</a>
+      </div>
+    {% endif %}
   </div>
-</div>
-
+</nav>
 {% endblock %}

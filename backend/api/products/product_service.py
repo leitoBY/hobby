@@ -1,4 +1,4 @@
-from api.products.product_repository import ProductRepository
+from backend.api.products.product_repository import ProductRepository
 
 
 class ProductService:

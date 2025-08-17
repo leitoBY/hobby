@@ -1,11 +1,10 @@
 import jwt
+
 from datetime import datetime, timedelta
 from werkzeug.security import check_password_hash
-from api.users.user_service import UserService
 
-# TODO this variables also need to move to config files
-JWT_SECRET = "EXTRA_SECRET_KEY"
-JWT_EXP_DELTA_SECONDS = 3600
+from backend.api.users.user_service import UserService
+from backend.config import get_config
 
 
 class LoginService:
@@ -23,11 +22,13 @@ class LoginService:
 
     @classmethod
     def _generate_access_jwt_token(cls, user):
+        jwt_secret = get_config().JWT_SECRET_KEY
+        jwt_exp_delta_seconds = get_config().JWT_EXP_DELTA_SECONDS
+
         payload = {
             'public_id': user.public_id,
-            'exp': datetime.utcnow() + timedelta(seconds=JWT_EXP_DELTA_SECONDS)
+            'exp': datetime.utcnow() + timedelta(seconds=jwt_exp_delta_seconds)
         }
-        encoded_jwt = jwt.encode(payload, JWT_SECRET, algorithm='HS256')
+        encoded_jwt = jwt.encode(payload, jwt_secret, algorithm='HS256')
 
-        jwt_token = encoded_jwt.decode('utf-8')
-        return jwt_token
+        return encoded_jwt

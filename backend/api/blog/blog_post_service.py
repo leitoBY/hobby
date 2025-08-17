@@ -1,7 +1,7 @@
 from datetime import datetime
-from api.users.user_model import User
-from api.blog.blog_post_model import BlogPost
-from api.blog.blog_post_repository import BlogPostRepository
+from backend.api.users.user_model import User
+from backend.api.blog.blog_post_model import BlogPost
+from backend.api.blog.blog_post_repository import BlogPostRepository
 
 
 class BlogPostService(object):

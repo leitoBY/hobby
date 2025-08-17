@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, render_template
-from api.products.product_service import ProductService
+from backend.api.products.product_service import ProductService
 
 
 products_store = Blueprint('products_store', __name__)

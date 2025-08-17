@@ -1,6 +1,6 @@
 from datetime import datetime
-from api.users.user_model import User
-from api.comment.comment_model import Comment
+from backend.api.users.user_model import User
+from backend.api.comment.comment_model import Comment
 
 
 class CommentService(object):

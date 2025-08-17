@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, render_template
-from api.cart.cart_service import CartService
+from backend.api.cart.cart_service import CartService
 
 
 user_cart = Blueprint('user_cart', __name__)

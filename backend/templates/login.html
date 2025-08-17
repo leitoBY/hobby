@@ -1,12 +1,17 @@
 {% extends "base_template.html" %} {% block content %}
 
 <div class="container login-form">
-<form>
+{% if error %}
+<div class="alert alert-danger" role="alert">
+    {{ error }}
+</div>
+{% endif %}
+<form method="POST" action="/login">
     <div class="form-group row">
         <div class="col-sm"></div>
         <div class="col-sm">
             <label for="exampleInputEmail1">Email address</label>
-            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <input type="email" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email" required>
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
         <div class="col-sm"></div>
@@ -15,12 +20,12 @@
         <div class="col-sm"></div>
         <div class="col-sm">
             <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="password" placeholder="Password">
+            <input type="password" class="form-control" name="password" id="password" placeholder="Password" required>
         </div>
         <div class="col-sm"></div>
     </div>
     <div class="login-button" style="text-align: center">
-        <button id="login_button" type="button" class="btn btn-primary">Login</button>
+        <button type="submit" class="btn btn-primary">Login</button>
     </div>
 </form>
 </div>

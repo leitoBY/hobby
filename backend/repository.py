@@ -10,7 +10,7 @@ class Repository:
         return cls.model.query.all()
 
     @classmethod
-    def add(cls, instance: "db.Model") -> None:
+    def add(cls, instance: db.Model) -> None:
         return cls.session.add(instance)
 
     @classmethod

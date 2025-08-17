@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, render_template, request
-from api.comment.comment_service import CommentService
+from backend.api.comment.comment_service import CommentService
 
 comment_api = Blueprint('comment_api', __name__)
 

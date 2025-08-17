@@ -1,4 +1,4 @@
-from connection import db
+from backend.connection import db
 
 cart_products = db.Table("cart_products",
     db.Column('cart_id', db.Integer, db.ForeignKey('cart.id'), primary_key=True),

@@ -1,5 +1,5 @@
-from repository import Repository
-from api.cart.cart_model import Cart
+from backend.repository import Repository
+from backend.api.cart.cart_model import Cart
 
 
 class CartRepository(Repository):

@@ -1,5 +1,5 @@
 from flask import jsonify, Blueprint, render_template, request
-from api.blog.blog_post_service import BlogPostService
+from backend.api.blog.blog_post_service import BlogPostService
 
 blog_post_api = Blueprint('blog_post_api', __name__)
 

@@ -1,4 +1,4 @@
-from connection import db
+from backend.connection import db
 
 
 class Product(db.Model):
@@ -14,4 +14,4 @@ class Product(db.Model):
         self.price = price
 
     def __repr__(self):
-        return '<title %r>' % self.title
+        return f'{self.title}'
